@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 
@@ -40,6 +41,10 @@ public class Tempo implements Serializable{
 	@OneToOne(optional=true, cascade = CascadeType.ALL)
 	@JoinColumn (name = "dia")
 	private Dia dia;
+	
+	@ManyToOne 
+	@JoinColumn (name="cidade")
+	private Cidade cidade = new Cidade();
 
 
 	
