@@ -18,7 +18,7 @@
     <div class="panel-heading">
         <h1 class="panel-title">Previsão do tempo</h1>
         <form action="/tempo" method="post">
-            <input type="submit" value="Buscar Todos">
+            <input type="submit" value="Buscar Todos" class="btn btn-primary">
         </form>
     </div>
     <div class="panel-body">
@@ -54,13 +54,13 @@
 </div>
 <form action="/buscarCidade" method="post">
     <input type="text" name="nome" placeholder="Buscar Cidade">
-    <input type="submit">
+    <input type="submit" class="btn btn-primary">
 </form>
 <br><br>
 <form action="/buscarLateLon" method="post">
     <input type="text" name="lat" placeholder="Buscar latitude">
     <input type="text" name="lon" placeholder="Buscar longitude">
-    <input type="submit">
+    <input type="submit" class="btn btn-primary">
 </form>
 <form method="POST" action="@{tempos}">
 			<div class="form-group">

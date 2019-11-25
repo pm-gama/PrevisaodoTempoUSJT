@@ -24,8 +24,10 @@ public class Tempo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_tempo")
     private Long id;
-    //    @Column(name = "dia_periodo")
+
 //    private String diaDaSemana;
+    
+    //Ligação 1 para 1
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false, name = "id_semana", foreignKey = @ForeignKey(name = "FK_tb_tempo_tb_semana"))
     private DiaSemana diaSemana;
@@ -40,11 +42,15 @@ public class Tempo implements Serializable {
     private String dataHora;
     @Column(name = "desc_tempo")
     private String discricao;
-
+    
+    
+    //Ligação N to 1
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false, name = "id_cidade", foreignKey = @ForeignKey(name = "FK_tb_tempo_tb_cidade"))
     private Cidade cidade;
     
+    
+    //ToString
     @Override
     public String toString() {
         return diaSemana.getDia() + " "
