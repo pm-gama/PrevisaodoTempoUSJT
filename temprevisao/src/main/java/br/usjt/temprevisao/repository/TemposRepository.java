@@ -15,7 +15,7 @@ import java.util.List;
 public interface TemposRepository extends JpaRepository<Tempo, Long> {
 
     
-    /*------------------------------------------------QUERY-----------------------------------------------------------------*/
+    /*------------------------------------------------QUERY E ASSICRONAS-----------------------------------------------------------------*/
 
 	@Async
     @Query("select p from Tempo p inner join p.cidade c where c.id = p.id and upper(c.nome) = upper(:nome)")
@@ -27,7 +27,7 @@ public interface TemposRepository extends JpaRepository<Tempo, Long> {
 	
 	List<Tempo> findAllByCidade_NomeIgnoreCase(String nome);
 
-    /*--------------------------------------NAMED QUERIES-----------------------------------------------------------------------*/
+    /*--------------------------------------NOMEANDO QUERIES-----------------------------------------------------------------------*/
 
     List<Tempo> BuscaPeloCidadeNome (@Param("nome") String nome);
 

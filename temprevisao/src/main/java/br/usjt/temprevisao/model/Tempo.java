@@ -2,6 +2,8 @@ package br.usjt.temprevisao.model;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,7 +31,7 @@ public class Tempo implements Serializable {
     
     //Ligação 1 para 1
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(nullable = false, name = "id_semana", foreignKey = @ForeignKey(name = "FK_tb_tempo_tb_semana"))
+    @JoinColumn(nullable = false, name = "id_semana")
     private DiaSemana diaSemana;
 
     @Column(name = "tempmin_tempo")
@@ -39,6 +41,7 @@ public class Tempo implements Serializable {
     @Column(name = "humidade_tempo")
     private Double humidade;
     @Column(name = "datahora_tempo")
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     private String dataHora;
     @Column(name = "desc_tempo")
     private String discricao;
@@ -46,7 +49,7 @@ public class Tempo implements Serializable {
     
     //Ligação N to 1
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(nullable = false, name = "id_cidade", foreignKey = @ForeignKey(name = "FK_tb_tempo_tb_cidade"))
+    @JoinColumn(nullable = false, name = "id_cidade")
     private Cidade cidade;
     
     

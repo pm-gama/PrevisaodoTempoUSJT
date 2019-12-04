@@ -32,6 +32,8 @@ public class TemposController {
 
     @Autowired
     private TemposService temposService;
+    
+    /*------------------------------------------------Model and View-----------------------------------------------------------------*/
 
     @GetMapping("/tempo")
     public ModelAndView listarPeriodos() {
@@ -42,7 +44,7 @@ public class TemposController {
         mv.addObject("tempos", tempos);
        return mv;
     }
-    
+    /*------------------------------------------------Buscas-----------------------------------------------------------------*/
       @PostMapping("/buscarCidade")
     public ModelAndView buscarCidade(String nome){
         ModelAndView mv = new ModelAndView("lista_tempo");
@@ -63,7 +65,13 @@ public class TemposController {
         return mv;
     }
     
+   
     //Salvar Tempo
+    @PostMapping("/salvartempo")
+    public String salvar (Tempo temp) {
+        temposService.salvar(temp);
+        return "redirect:/tempo";
+    }
 
     @PostMapping("/tempo")
     public ModelAndView Home() {

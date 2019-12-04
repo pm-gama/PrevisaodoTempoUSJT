@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface CidadeRepository extends JpaRepository<Cidade, Long> {
 
+	 /*------------------------------------------------QUERY-----------------------------------------------------------------*/
     @Query("select c from Cidade c where upper(c.nome) like :nome% or lower(c.nome) like :nome% ")
     public List<Cidade> findAllByNomeIgnoreCase(@Param("nome") String nome);
 
